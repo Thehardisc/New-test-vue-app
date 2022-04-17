@@ -1,30 +1,48 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <nav class="navigation-bar">
+    <div class="test">
+      <i class="fa-solid fa-ghost"></i>
+      <router-link to="/">Non Urgent Dilvery System</router-link>
+    </div>
+    <Login />
+    <div class="test2">
+      <router-link to="/about">About</router-link> 
+      <router-link class="test3" to="/about">About</router-link> 
+      <router-link class="test3" to="/about">About</router-link>
+    </div>
   </nav>
   <router-view/>
 </template>
-
+<script>
+  import Login from "./components/Login.vue"
+  export default {
+    components: {
+      Login
+    }
+  }
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+    
+  .navigation-bar {
+    @apply  bg-primary text-white flex flex-nowrap border-b-[1px] border-gray-700 shadow-md shadow-primary font-Lobster;
+    }
+  .navigation-bar .test {
+    @apply ml-2 text-lg p-2 w-1/2;
+  }
+  .navigation-bar .test i {
+    @apply mr-2 text-[15px];
+  }
+  .navigation-bar .test a {
+    @apply tracking-tighter
+  }
+  .navigation-bar .test2 {
+    @apply w-1/2 flex justify-end mr-6  py-3 text-sm;
+  }
+  .navigation-bar .test2 a {
+    @apply ml-3 ;
+  }
+  .navigation-bar .test3 {
+    @apply border-l-2 pl-3
+  }
+  
 </style>
