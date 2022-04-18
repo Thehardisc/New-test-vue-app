@@ -4,25 +4,38 @@
       <i class="fa-solid fa-ghost"></i>
       <router-link to="/">Non Urgent Dilvery System</router-link>
     </div>
-    <Login />
+    <Login @toogleLoginTab="toogleLogin"/>
     <div class="test2">
       <router-link to="/about">About</router-link> 
       <router-link class="test3" to="/about">About</router-link> 
       <router-link class="test3" to="/about">About</router-link>
     </div>
   </nav>
-  <router-view/>
+    <LoginForm :toggleIfPressed="toogleIfPressed"/>
+  <router-view class="z-0"/>
 </template>
 <script>
   import Login from "./components/Login.vue"
+  import LoginForm from "./components/LoginForm.vue"
   export default {
+    name: "App",
     components: {
-      Login
+      Login,
+      LoginForm,
+    },
+    data() {
+      return {
+        toogleIfPressed: false,
+      }
+    },
+    methods: {
+      toogleLogin() {
+        this.toogleIfPressed = !this.toogleIfPressed 
+      }
     }
   }
 </script>
 <style>
-    
   .navigation-bar {
     @apply  bg-primary text-white flex flex-nowrap border-b-[1px] border-gray-700 shadow-md shadow-primary font-Lobster;
     }
